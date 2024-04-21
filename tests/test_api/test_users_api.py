@@ -125,7 +125,7 @@ async def test_login_success(async_client, user):
     assert response.status_code == 200
     assert "access_token" in response.json()
     assert response.json()["token_type"] == "bearer"
-    
+
 @pytest.mark.asyncio
 async def test_create_user_duplicate_username(async_client, user):
     user_data = {
@@ -174,3 +174,4 @@ async def test_delete_user_does_not_exist(async_client, token):
     delete_response = await async_client.delete(f"/users/{non_existent_user_id}", headers=headers)
     assert delete_response.status_code == 404
 
+    
