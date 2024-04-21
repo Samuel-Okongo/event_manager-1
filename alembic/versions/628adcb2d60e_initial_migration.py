@@ -29,7 +29,11 @@ def upgrade() -> None:
     sa.Column('full_name', sa.String(length=100), nullable=True),
     sa.Column('bio', sa.String(length=500), nullable=True),
     sa.Column('profile_picture_url', sa.String(length=255), nullable=True),
-    sa.Column('role', sa.Enum('ADMIN', 'USER', 'PRO', name='userrole'), nullable=False),
+    sa.Column('role', sa.Enum('ANONYMOUS', 'AUTHENTICATED', 'MANAGER', 'ADMIN', name='userrole'), nullable=False),
+    sa.Column('is_professional', sa.Boolean(), nullable=True, default=False),
+    sa.Column('professional_status_updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
+    sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('last_login_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('failed_login_attempts', sa.Integer(), nullable=True),
     sa.Column('is_locked', sa.Boolean(), nullable=True),
@@ -39,7 +43,7 @@ def upgrade() -> None:
     )
     op.create_index(op.f('ix_users_email'), 'users', ['email'], unique=True)
     op.create_index(op.f('ix_users_username'), 'users', ['username'], unique=True)
-    # ### end Alembic commands ###
+    # ### end Alembic commands ##
 
 
 def downgrade() -> None:
