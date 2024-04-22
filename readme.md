@@ -1,6 +1,11 @@
 Issues
 
-
+1. https://github.com/Samuel-Okongo/event_manager-1/issues/12
+2. https://github.com/Samuel-Okongo/event_manager-1/issues/9
+3. https://github.com/Samuel-Okongo/event_manager-1/issues/6
+4. https://github.com/Samuel-Okongo/event_manager-1/issues/5
+5. https://github.com/Samuel-Okongo/event_manager-1/issues/3
+6. https://github.com/Samuel-Okongo/event_manager-1/issues/2
 
 
 
